@@ -12,13 +12,16 @@
     <main>
         <form id="sign_in_form"> 
             <label for="input_user">user</label>
-            <input id="input_user" name="input_user" type="text" required autocomplete="off" spellcheck="false">
+            <input class="form_input" id="input_user" name="input_user" type="text" required autocomplete="off" spellcheck="false">
+            <span class="input_underline"></span>
         
             <label for="input_email">email</label>
-            <input id="input_email" name="input_email" type="text" required autocomplete="off" spellcheck="false">
+            <input class="form_input" id="input_email" name="input_email" type="email" required autocomplete="off" spellcheck="false">
+            <span class="input_underline"></span>
 
             <label for="input_password">password</label>
-            <input id="input_password" name="input_password" type="password" required autocomplete="off" spellcheck="false">
+            <input class="form_input" id="input_password" name="input_password" type="password" required autocomplete="off" spellcheck="false">
+            <span class="input_underline"></span>
 
             <button type="submit">Sign in</button>
         </form>
