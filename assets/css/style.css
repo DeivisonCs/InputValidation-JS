@@ -74,6 +74,18 @@ main form button{
     cursor: not-allowed;
 }
 
+main form .recovery_password {
+    color: #fafafaa1;
+    text-align: center;
+    margin-top: 10px;
+    font-size: .8em;
+    text-underline-offset: 4px;
+}
+
+main form .recovery_password:hover {
+    text-shadow: 0px 0px 3px #fff;
+}
+
 main form button.ready {
     filter: opacity(1);
     cursor: pointer;
