@@ -11,17 +11,35 @@
 <body>
     <main>
         <form id="sign_in_form"> 
-            <label for="input_user">user</label>
+            <label for="input_user">username</label>
             <input class="form_input" id="input_user" name="input_user" type="text" required autocomplete="off" spellcheck="false">
             <span class="input_underline"></span>
+
+            <div class="error_mensages">
+                <span id="empty-user-error">Username must be filled</span>
+                <span id="user-space-error">Username cannot contain blank spaces</span>
+            </div>
         
             <label for="input_email">email</label>
             <input class="form_input" id="input_email" name="input_email" type="email" required autocomplete="off" spellcheck="false">
             <span class="input_underline"></span>
 
+            <div class="error_mensages">
+                <span id="empty-email-error">Email must be filled</span>
+                <span id="no-gmail-error">Email must contain '@gmail.com'</span>
+            </div>
+
             <label for="input_password">password</label>
             <input class="form_input" id="input_password" name="input_password" type="password" required autocomplete="off" spellcheck="false">
             <span class="input_underline"></span>
+
+            <div class="error_mensages">
+                <span id="character-password-error">8 characters</span>
+                <span id="uppercase-password-error">1 uppercase letter</span>
+                <span id="lowercase-password-error">1 lowercase letter</span>
+                <!-- <span id="password-space-error">1 special character</span> -->
+                <span id="symbol-password-error">1 special character</span>
+            </div>
 
             <button type="submit" id="submit_Buttom">Sign in</button>
             <a href="#" class="recovery_password">Forgot Password?</a>
