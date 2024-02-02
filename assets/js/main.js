@@ -15,24 +15,3 @@ FORM_SUBMIT.addEventListener('submit', (e) => {
     console.log(USER);
     console.log(EMAIL);
 })
-
-FORM_SUBMIT.addEventListener('click', (e) => {
-    
-    removeActiveClass();
-    
-    if(e.target.className == 'form_input'){
-        const input_Underscore = e.target.nextElementSibling;
-        
-        input_Underscore.classList.add('actived');
-        // input_Underscore.style.width = '100%'
-    }
-})
-
-const removeActiveClass = () => {
-    const all_Undescores = document.querySelectorAll('.input_underline');
-
-    all_Undescores.forEach(tag => {
-        tag.classList.remove('actived');
-        // tag.style.width = '0'  
-    });
-}
