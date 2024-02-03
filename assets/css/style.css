@@ -3,6 +3,10 @@
     --created-bg-color: #56EEF4, #E5D1D0, #32E875;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-image: linear-gradient(-45deg, var(--main-bg-color));
     height: 100vh;
