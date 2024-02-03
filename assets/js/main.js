@@ -1,6 +1,9 @@
 
 const submitButtom = document.getElementById('submit_Buttom');
 
+
+// ----------------------------- Verifications -------------------------------
+
 const verifyUser = () => {
     const input = document.getElementById('input_user');
     const user = input.value;
@@ -14,6 +17,56 @@ const verifyUser = () => {
         return false;
     
 }
+
+const verifyEmail = () => {
+    const input = document.getElementById('input_email');
+    const email = input.value;
+    const regex = /^[a-z0-9.]+@gmail+\.com$/i;
+
+    emailErrors(email);
+    const valid = regex.test(email);
+
+    if(valid)
+        return true;
+    else 
+        return false;
+}
+
+const verifyPassword = () => {
+    const input = document.getElementById('input_password');
+    const password = input.value;
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
+    
+    passwordErrors(password);
+    const valid = regex.test(password);
+
+    if(valid) 
+        return true;
+    else 
+        return false;
+}
+
+const validSubmitButtom = () => {
+    submitButtom.classList.remove('account_created');
+    submitButtom.textContent = 'Sign In';
+
+    const email = verifyEmail();
+    const user = verifyUser();
+    const password = verifyPassword();
+
+    if(email && user && password){
+        submitButtom.removeAttribute('disabled');
+        return true;
+    }
+    else {
+        submitButtom.setAttribute('disabled', 'disabled');
+        return false;
+    }
+
+}
+
+
+// ---------------------------- Get Errors ---------------------------
 
 function userErrors(user) {
     const empty_user_error = document.getElementById('empty-user-error');
@@ -31,50 +84,21 @@ function userErrors(user) {
     
 }
 
-const verifyEmail = () => {
-    const input = document.getElementById('input_email');
-    const email = input.value;
-    const regex = /^[a-z0-9.]+@gmail+\.com$/i;
-
-    emailErrors(email);
-    const valid = regex.test(email);
-
-    if(valid && email != " ")
-        return true;
-    else 
-        return false;
-}
-
 function emailErrors(email) {
     const regex = /@gmail+\.com$/i;
     const no_gmail_error = document.getElementById('no-gmail-error');
     const empty_email_error = document.getElementById('empty-email-error');
+    const email_space_error = document.getElementById('email-space-error');
 
-    if(!regex.test(email))
-        no_gmail_error.style.display = 'block';
-    else
-    no_gmail_error.style.display = 'none';
+    if(!regex.test(email)) no_gmail_error.style.display = 'block';
+    else no_gmail_error.style.display = 'none';
 
-    if(email == "")
-        empty_email_error.style.display = 'block';
-    else
-        empty_email_error.style.display = 'none';
+    if(email == "") empty_email_error.style.display = 'block';
+    else empty_email_error.style.display = 'none';
 
-}
+    if(email.includes(" ")) email_space_error.style.display = 'block';
+    else email_space_error.style.display = 'none';
 
-
-const verifyPassword = () => {
-    const input = document.getElementById('input_password');
-    const password = input.value;
-    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/
-    
-    passwordErrors(password);
-    const valid = regex.test(password);
-
-    if(valid) 
-        return true;
-    else 
-        return false;
 }
 
 function passwordErrors(password) {
@@ -111,24 +135,8 @@ function passwordErrors(password) {
 
 }
 
-const validSubmitButtom = () => {
-    submitButtom.classList.remove('account_created');
-    submitButtom.textContent = 'Sign In';
 
-    const email = verifyEmail();
-    const user = verifyUser();
-    const password = verifyPassword();
-
-    if(email && user && password){
-        submitButtom.removeAttribute('disabled');
-        return true;
-    }
-    else {
-        submitButtom.setAttribute('disabled', 'disabled');
-        return false;
-    }
-
-}
+// ---------------------------------- Main -------------------------------------
 
 const __init__ = () => {
     const form_user = document.getElementById('input_user');
@@ -155,6 +163,5 @@ const __init__ = () => {
         })
     }
 }
-
 
 window.onload = __init__;
