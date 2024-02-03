@@ -81,24 +81,33 @@ function passwordErrors(password) {
     const character_password_error = document.getElementById('character-password-error'); 
     const uppercase_password_error = document.getElementById('uppercase-password-error'); 
     const lowercase_password_error = document.getElementById('lowercase-password-error'); 
+    const number_password_error = document.getElementById('number-password-error');
     const symbol_password_error = document.getElementById('symbol-password-error');
+    const password_space_error = document.getElementById('password-space-error');
     let regex;
 
+    
+    if(password.includes(" ")) password_space_error.style.display = 'block';
+    else password_space_error.style.display = 'none';
 
     if(password.length < 8) character_password_error.style.display = 'block';
     else character_password_error.style.display = 'none';
 
-    // regex = /[a-z][0-9a-zA-Z$*&@#]$/;
-    // if(!regex.test(password)) lowercase_password_error.style.display = 'block';
-    // else lowercase_password_error.style.display = 'none';
+    regex = /[a-z]/;
+    if(!regex.test(password)) lowercase_password_error.style.display = 'block';
+    else lowercase_password_error.style.display = 'none';
 
-    // regex = /[A-Z][0-9a-zA-Z$*&@#]$/;
-    // if(!regex.test(password)) uppercase_password_error.style.display = 'block';
-    // else uppercase_password_error.style.display = 'none';
+    regex = /[A-Z]/;
+    if(!regex.test(password)) uppercase_password_error.style.display = 'block';
+    else uppercase_password_error.style.display = 'none';
     
-    // regex = /[$*&@#][0-9a-zA-Z$*&@#]$/;
-    // if(!regex.test(password)) symbol_password_error.style.display = 'block';
-    // else symbol_password_error.style.display = 'none';
+    regex = /[$*&@#]/;
+    if(!regex.test(password)) symbol_password_error.style.display = 'block';
+    else symbol_password_error.style.display = 'none';
+
+    regex = /[0-9]/;
+    if(!regex.test(password)) number_password_error.style.display = 'block';
+    else number_password_error.style.display = 'none';
 
 }
 
