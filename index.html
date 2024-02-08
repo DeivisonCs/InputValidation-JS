@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/global.css">
+    <!-- -------- ICONS -------- -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <title>Validation</title>
 </head>
@@ -23,16 +25,17 @@
             <label for="input_email">email</label>
             <input class="form_input" id="input_email" name="input_email" type="email" required autocomplete="off" spellcheck="false">
             <span class="input_underline"></span>
-
+            
             <div class="error_mensages">
                 <span id="email-space-error">Email cannot contain blank spaces</span>
                 <span id="empty-email-error">Email must be filled</span>
                 <span id="no-gmail-error">Email must contain '@gmail.com'</span>
             </div>
-
+            
             <label for="input_password">password</label>
             <input class="form_input" id="input_password" name="input_password" type="password" required autocomplete="off" spellcheck="false">
             <span class="input_underline"></span>
+            <span id="change-visibility-button" class="material-symbols-outlined">visibility_off</span>
 
             <div class="error_mensages">
                 <span id="password-space-error">Password cannot contain blank spaces</span>

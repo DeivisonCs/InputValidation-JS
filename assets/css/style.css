@@ -55,6 +55,13 @@ main form input:focus {
     border: none;
 }
 
+main form .material-symbols-outlined {
+    text-align: right;
+    margin-top: -30px;
+    margin-left: 90%;
+    width: fit-content;
+}
+
 main form .input_underline {
     background-image: linear-gradient(-45deg, var(--main-bg-color));
     height: 2px;

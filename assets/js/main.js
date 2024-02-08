@@ -65,6 +65,20 @@ const validSubmitButtom = () => {
 
 }
 
+function validPasswordVisibility() {
+    const visibility_button = document.getElementById('change-visibility-button');
+    const form_password = document.getElementById('input_password');
+
+    if(visibility_button.textContent == 'visibility_off') {
+        form_password.type = 'text';
+        visibility_button.textContent = 'visibility';
+    }
+    else {
+        form_password.type = 'password';
+        visibility_button.textContent = 'visibility_off';
+    }
+
+}
 
 // ---------------------------- Get Errors ---------------------------
 
@@ -142,10 +156,14 @@ const __init__ = () => {
     const form_user = document.getElementById('input_user');
     const form_email = document.getElementById('input_email');
     const form_password = document.getElementById('input_password'); 
+    const visibility_button = document.getElementById('change-visibility-button');
+
 
     form_user.addEventListener('input', validSubmitButtom);
     form_email.addEventListener('input', validSubmitButtom);
     form_password.addEventListener('input', validSubmitButtom);
+    visibility_button.addEventListener('click', validPasswordVisibility);
+
 
     submitButtom.setAttribute('disabled', 'disabled');
 
